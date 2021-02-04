@@ -33,7 +33,7 @@ function tambah($data)
 function hapus($nik)
 {
     global $conn;
-    mysqli_query($conn, "DELETE FROM datakaryawan WHERE nik = $nik");
+    mysqli_query($conn, "DELETE FROM datakaryawan WHERE nik = '$nik'");
     return mysqli_affected_rows($conn);
 }
 

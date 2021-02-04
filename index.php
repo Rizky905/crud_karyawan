@@ -56,8 +56,8 @@ $karyawan = query("SELECT * FROM datakaryawan");
                     <td><?= $row['gender']; ?></th>
                     <td><?= $row['keahlian']; ?></th>
                     <td>
-                        <a href="ubah.php?id=<?= $row["nik"]; ?>">Ubah</a>
-                        <a href="hapus.php?id=<?= $row["nik"]; ?>">Hapus</a>
+                        <a href="ubah.php?nik=<?= $row["nik"]; ?>">Ubah</a>
+                        <a href="hapus.php?nik=<?= $row["nik"]; ?>">Hapus</a>
                     </td>
                 </tr>
                 <?php $i++ ?>

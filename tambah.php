@@ -58,7 +58,7 @@ if (isset($_POST["submit"])) {
             <section class="base">
                 <div class="form-group mt-5">
                     <label for="nama">NIK</label>
-                    <input type="text" class="form-control" name="nik" id="nama" value="<?= $format; ?> " readonly />
+                    <input type="text" class="form-control" name="nik" id="nik" value="<?= $format; ?> " readonly />
                 </div>
                 <div class="form-group mt-5">
                     <label for="nama">Nama Karyawan</label>

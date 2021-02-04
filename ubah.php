@@ -46,19 +46,35 @@ if (isset($_POST["submit"])) {
         <form method="POST" enctype="multipart/form-data">
             <section class="base">
                 <div class="form-group mt-5">
-                    <input type="hidden" name="id" value="<?= $karyawan["nik"]; ?>" />
+                    <input type="hidden" name="nik" value="<?= $karyawan["nik"]; ?>" />
                 </div>
                 <div class="form-group mt-5">
                     <label for="nama">Nama Karyawan</label>
                     <input type="text" class="form-control" name="nama" id="nama" value="<?= $karyawan["nama"]; ?>" />
                 </div>
                 <div class="form-group mt-2">
-                    <label for="skill">Skill Karyawan</label>
-                    <input type="text" class="form-control" name="skill" id="skill" value="<?= $karyawan["skill"]; ?>" />
+                    <label for="skill">Alamat</label>
+                    <input type="text" class="form-control" name="alamat" id="alamat" <?= $karyawan["nik"]; ?> />
                 </div>
-                <div class="form-group mt-4">
-                    <label for="foto">Upload foto</label>
-                    <input type="file" class="form-control-file" name="foto" id="foto" value="<?= $karyawan["foto"]; ?>" />
+                <div class="form-group mt-2">
+                    <label for="skill">Email</label>
+                    <input type="text" class="form-control" name="email" id="email" <?= $karyawan["email"]; ?> />
+                </div>
+                <div class="form-group mt-2">
+                    <label for="skill">Tempat Lahir</label>
+                    <input type="text" class="form-control" name="tempatlahir" id="tempatlahir" <?= $karyawan["tempatlahir"]; ?> />
+                </div>
+                <div class="form-group mt-2">
+                    <label for="skill">Tanggal Lahir</label>
+                    <input type="text" class="form-control" name="tgllahir" id="tgllahir" <?= $karyawan["tgllahir"]; ?> />
+                </div>
+                <div class="form-group mt-2">
+                    <label for="skill">Gender</label>
+                    <input type="text" class="form-control" name="gender" id="gender" <?= $karyawan["gender"]; ?> />
+                </div>
+                <div class="form-group mt-2">
+                    <label for="skill">Keahlian</label>
+                    <input type="text" class="form-control" name="keahlian" id="keahlian" <?= $karyawan["keahlian"]; ?> />
                 </div>
                 <div class="text-center mt-4">
                     <button class="btn btn-dark" type="submit" name="submit">Simpan</button>
