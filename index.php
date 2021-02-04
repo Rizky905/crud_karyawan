@@ -40,6 +40,7 @@ $karyawan = query("SELECT * FROM datakaryawan");
                     <th>Tanggal Lahir</th>
                     <th>Gender</th>
                     <th>Keahlian</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <?php $i = 1 ?>
