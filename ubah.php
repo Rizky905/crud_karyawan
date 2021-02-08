@@ -3,7 +3,7 @@ require 'function.php';
 
 $nik = $_GET["nik"];
 
-$karyawan = query("SELECT * FROM datakaryawan WHERE nik = $nik")[0];
+$karyawan = query("SELECT * FROM datakaryawan WHERE nik = '$nik'")[0];
 
 if (isset($_POST["submit"])) {
     if (ubah($_POST) > 0) {
@@ -53,28 +53,28 @@ if (isset($_POST["submit"])) {
                     <input type="text" class="form-control" name="nama" id="nama" value="<?= $karyawan["nama"]; ?>" />
                 </div>
                 <div class="form-group mt-2">
-                    <label for="skill">Alamat</label>
-                    <input type="text" class="form-control" name="alamat" id="alamat" <?= $karyawan["nik"]; ?> />
+                    <label for="alamat">Alamat</label>
+                    <input type="text" class="form-control" name="alamat" id="alamat" value="<?= $karyawan["nik"]; ?>" />
                 </div>
                 <div class="form-group mt-2">
-                    <label for="skill">Email</label>
-                    <input type="text" class="form-control" name="email" id="email" <?= $karyawan["email"]; ?> />
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" name="email" id="email" value="<?= $karyawan["email"]; ?>" />
                 </div>
                 <div class="form-group mt-2">
-                    <label for="skill">Tempat Lahir</label>
-                    <input type="text" class="form-control" name="tempatlahir" id="tempatlahir" <?= $karyawan["tempatlahir"]; ?> />
+                    <label for="tempatlahir">Tempat Lahir</label>
+                    <input type="text" class="form-control" name="tempatlahir" id="tempatlahir" value="<?= $karyawan["tempatlahir"]; ?>" />
                 </div>
                 <div class="form-group mt-2">
-                    <label for="skill">Tanggal Lahir</label>
-                    <input type="text" class="form-control" name="tgllahir" id="tgllahir" <?= $karyawan["tgllahir"]; ?> />
+                    <label for="tgllahir">Tanggal Lahir</label>
+                    <input type="text" class="form-control" name="tgllahir" id="tgllahir" value="<?= $karyawan["tgllahir"]; ?>" />
                 </div>
                 <div class="form-group mt-2">
-                    <label for="skill">Gender</label>
-                    <input type="text" class="form-control" name="gender" id="gender" <?= $karyawan["gender"]; ?> />
+                    <label for="gender">Gender</label>
+                    <input type="text" class="form-control" name="gender" id="gender" value="<?= $karyawan["gender"]; ?> " />
                 </div>
                 <div class="form-group mt-2">
-                    <label for="skill">Keahlian</label>
-                    <input type="text" class="form-control" name="keahlian" id="keahlian" <?= $karyawan["keahlian"]; ?> />
+                    <label for="keahlian">Keahlian</label>
+                    <input type="text" class="form-control" name="keahlian" id="keahlian" value="<?= $karyawan["keahlian"]; ?>" />
                 </div>
                 <div class="text-center mt-4">
                     <button class="btn btn-dark" type="submit" name="submit">Simpan</button>

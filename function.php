@@ -55,8 +55,8 @@ function ubah($data)
     tempatlahir = '$tempatlahir',
     tgllahir = '$tgllahir',
     gender = '$gender',
-    keahlian = '$keahlian' ,
-    WHERE nik = $nik";
+    keahlian = '$keahlian'
+    WHERE nik = '$nik'";
 
     mysqli_query($conn, $query);
     return mysqli_affected_rows($conn);
