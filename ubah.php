@@ -2,8 +2,8 @@
 require 'function.php';
 
 $nik = $_GET["nik"];
-
-$karyawan = query("SELECT * FROM datakaryawan WHERE nik = '$nik'")[0];
+$karyawan = query("SELECT * FROM datakaryawan WHERE nik = '$nik'");
+$ex = explode(',', $karyawan['keahlian']);
 
 if (isset($_POST["submit"])) {
     if (ubah($_POST) > 0) {
@@ -50,32 +50,43 @@ if (isset($_POST["submit"])) {
                 </div>
                 <div class="form-group mt-5">
                     <label for="nama">Nama Karyawan</label>
-                    <input type="text" class="form-control" name="nama" id="nama" value="<?= $karyawan["nama"]; ?>" />
+                    <input type="text" class="form-control" name="nama" id="nama" value="<?= $karyawan["nama"]; ?>" require />
                 </div>
                 <div class="form-group mt-2">
                     <label for="alamat">Alamat</label>
-                    <input type="text" class="form-control" name="alamat" id="alamat" value="<?= $karyawan["nik"]; ?>" />
+                    <input type="text" class="form-control" name="alamat" id="alamat" value="<?= $karyawan["nik"]; ?>" require />
                 </div>
                 <div class="form-group mt-2">
                     <label for="email">Email</label>
-                    <input type="text" class="form-control" name="email" id="email" value="<?= $karyawan["email"]; ?>" />
+                    <input type="text" class="form-control" name="email" id="email" value="<?= $karyawan["email"]; ?>" require />
                 </div>
                 <div class="form-group mt-2">
                     <label for="tempatlahir">Tempat Lahir</label>
-                    <input type="text" class="form-control" name="tempatlahir" id="tempatlahir" value="<?= $karyawan["tempatlahir"]; ?>" />
+                    <input type="text" class="form-control" name="tempatlahir" id="tempatlahir" value="<?= $karyawan["tempatlahir"]; ?>" require />
                 </div>
                 <div class="form-group mt-2">
                     <label for="tgllahir">Tanggal Lahir</label>
-                    <input type="text" class="form-control" name="tgllahir" id="tgllahir" value="<?= $karyawan["tgllahir"]; ?>" />
+                    <input type="text" class="form-control" name="tgllahir" id="tgllahir" value="<?= $karyawan["tgllahir"]; ?>" require />
                 </div>
-                <div class="form-group mt-2">
-                    <label for="gender">Gender</label>
-                    <input type="text" class="form-control" name="gender" id="gender" value="<?= $karyawan["gender"]; ?> " />
+                <div class="form-group mt-3">
+                    <label for="skill">Gender</label>
+                    <select name="gender" id="gender" class="form-select mt-2 " aria-label="Default select example" value="<?php echo $karyawan['gender'] ?>">
+                        <label for="gender">Gender</label>
+                        <option value="Laki-laki">Laki-laki</option>
+                        <option value="Perempuan">Perempuan</option>
+                    </select>
                 </div>
-                <div class="form-group mt-2">
+
+                <div class="form-group mt-3">
                     <label for="keahlian">Keahlian</label>
-                    <input type="text" class="form-control" name="keahlian" id="keahlian" value="<?= $karyawan["keahlian"]; ?>" />
                 </div>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="keahlian[]" value="java" <?= in_array('java', $ex) ? print 'checked' : '' ?>> java<br />
+                        <input type="checkbox" name="keahlian[]" value="css" <?= in_array('css', $ex) ? print 'checked' : '' ?>> css<br />
+                        <input type="checkbox" name="keahlian[]" value="kotlin" <?= in_array('kotlin', $ex) ? print 'checked' : '' ?>> kotlin<br />
+                    </td>
+                </tr>
                 <div class="text-center mt-4">
                     <button class="btn btn-dark" type="submit" name="submit">Simpan</button>
                 </div>

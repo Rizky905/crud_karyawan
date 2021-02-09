@@ -1,6 +1,6 @@
 <?php
 require 'function.php';
-$karyawan = query("SELECT * FROM datakaryawan");
+$karyawan = mysqli_query($conn, "SELECT * FROM datakaryawan");
 ?>
 
 <!DOCTYPE html>

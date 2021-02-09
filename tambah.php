@@ -1,16 +1,18 @@
 <?php
 require 'function.php';
 
-$datakaryawan = mysqli_query($conn, "SELECT nik FROM datakaryawan ORDER BY nik DESC");
-$nikanggota = mysqli_fetch_assoc($datakaryawan);
-$kode = $nikanggota['nik'];
-$urut = substr($kode, 6, 3);
+$datakaryawan = query("SELECT nik FROM datakaryawan ORDER BY nik DESC");
+$urut = substr($datakaryawan['nik'], 5, 5);
 $tambah = (int)$urut + 1;
 $bulan = date('m');
 $tahun = date('y');
 if (strlen($tambah) == 1) {
-    $format = "K" . $tahun . $bulan . "00" . $tambah;
+    $format = "K" . $tahun . $bulan . "0000" . $tambah;
 } else if (strlen($tambah) == 2) {
+    $format = "K" . $tahun . $bulan . "000" . $tambah;
+} else if (strlen($tambah) == 3) {
+    $format = "K" . $tahun . $bulan . "00" . $tambah;
+} else if (strlen($tambah) == 4) {
     $format = "K" . $tahun . $bulan . "0" . $tambah;
 } else {
     $format = "K" . $tahun . $bulan . $tambah;
@@ -62,32 +64,43 @@ if (isset($_POST["submit"])) {
                 </div>
                 <div class="form-group mt-5">
                     <label for="nama">Nama Karyawan</label>
-                    <input type="text" class="form-control" name="nama" id="nama" />
+                    <input type="text" class="form-control" name="nama" id="nama" require />
                 </div>
                 <div class="form-group mt-2">
                     <label for="skill">Alamat</label>
-                    <input type="text" class="form-control" name="alamat" id="alamat" />
+                    <input type="text" class="form-control" name="alamat" id="alamat" require />
                 </div>
                 <div class="form-group mt-2">
                     <label for="skill">Email</label>
-                    <input type="text" class="form-control" name="email" id="email" />
+                    <input type="text" class="form-control" name="email" id="email" require />
                 </div>
                 <div class="form-group mt-2">
                     <label for="skill">Tempat Lahir</label>
-                    <input type="text" class="form-control" name="tempatlahir" id="tempatlahir" />
+                    <input type="text" class="form-control" name="tempatlahir" id="tempatlahir" require />
                 </div>
                 <div class="form-group mt-2">
                     <label for="skill">Tanggal Lahir</label>
-                    <input type="text" class="form-control" name="tgllahir" id="tgllahir" />
+                    <input type="text" class="form-control" name="tgllahir" id="tgllahir" require />
                 </div>
                 <div class="form-group mt-2">
                     <label for="skill">Gender</label>
-                    <input type="text" class="form-control" name="gender" id="gender" />
+                    <select name="gender" id="gender" class="form-select mt-2 " aria-label="Default select example">
+                        <label for="gender">Gender</label>
+                        <option selected>Pilih gender</option>
+                        <option value="Laki-laki">Laki-laki</option>
+                        <option value="Perempuan">Perempuan</option>
+                    </select>
                 </div>
                 <div class="form-group mt-2">
-                    <label for="skill">Keahlian</label>
-                    <input type="text" class="form-control" name="keahlian" id="keahlian" />
+                    <label for="keahlian">Keahlian</label>
                 </div>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="keahlian[]" value="java"> java<br />
+                        <input type="checkbox" name="keahlian[]" value="css"> css<br />
+                        <input type="checkbox" name="keahlian[]" value="kotlin"> kotlin<br />
+                    </td>
+                </tr>
                 <div class="text-center mt-4">
                     <button class="btn btn-dark" type="submit" name="submit">Simpan</button>
                 </div>
